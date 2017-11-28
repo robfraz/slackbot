@@ -57,18 +57,18 @@ class MessageDispatcher(object):
                     logger.exception(
                         'failed to handle message %s with plugin "%s"',
                         msg['text'], func.__name__)
-                    reply = u'[{}] I had a problem handling "{}"\n'.format(
-                        func.__name__, msg['text'])
-                    tb = u'```\n{}\n```'.format(traceback.format_exc())
-                    if self._errors_to:
-                        self._client.rtm_send_message(msg['channel'], reply)
-                        self._client.rtm_send_message(self._errors_to,
-                                                      '{}\n{}'.format(reply,
-                                                                      tb))
-                    else:
-                        self._client.rtm_send_message(msg['channel'],
-                                                      '{}\n{}'.format(reply,
-                                                                      tb))
+                    # reply = u'[{}] I had a problem handling "{}"\n'.format(
+                    #     func.__name__, msg['text'])
+                    # tb = u'```\n{}\n```'.format(traceback.format_exc())
+                    # if self._errors_to:
+                    #     self._client.rtm_send_message(msg['channel'], reply)
+                    #     self._client.rtm_send_message(self._errors_to,
+                    #                                   '{}\n{}'.format(reply,
+                    #                                                   tb))
+                    # else:
+                    #     self._client.rtm_send_message(msg['channel'],
+                    #                                   '{}\n{}'.format(reply,
+                    #                                                   tb))
         return responded
 
     def _on_new_message(self, msg):
