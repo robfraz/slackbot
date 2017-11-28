@@ -24,6 +24,8 @@ _FRISKA_REPLIES = [
         "BACON"
 ]
 
+_FRISKA_CHANNEL = 'bristol_chitchat'
+
 
 @default_reply
 def do_nothing(message):
@@ -31,12 +33,12 @@ def do_nothing(message):
 
 
 # Listen for shortish messages that mention Friska and end with a question mark.
-@listen_to('(.){0,20}friska(.){0,15}\?$', re.IGNORECASE)
-def friska(message):
+@listen_to('^(.){0,20}friska(.){0,15}\?$', re.IGNORECASE)
+def friska(message, *args):
     """Get some free Friska!"""
     try:
         channel_name = message._client.channels[message.body['channel']]['name']
-        if channel_name == 'bristol_chitchat':
+        if channel_name == _FRISKA_CHANNEL:
             logger.info("Someone is getting Friska'd!")
             # Only compete in 'friska-ings' every 12 hours, to avoid bot-like behaviour.
             if (time() - friska.time_of_last_friska) > 43200:
