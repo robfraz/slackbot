@@ -165,9 +165,9 @@ class MessageDispatcher(object):
                 six.iteritems(self._plugins.commands['respond_to'])]
             # pylint: disable=redefined-variable-type
             default_reply = u'\n'.join(default_reply)
-
-        m = Message(self._client, msg)
-        m.reply(default_reply)
+        return
+        # m = Message(self._client, msg)
+        # m.reply(default_reply)
 
 
 def unicode_compact(func):
