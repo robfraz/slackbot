@@ -39,6 +39,7 @@ _IGNORE_LIST = set([
     'U7LF36R2T',  # LT
     'U0470B1LG',  # MZ
     'U3YCWA2Q3',  # RF Test account
+    'U0KNYSN9L',  # SH
     'U04AW38AL',  # TO
     'U6HEJL3LK'   # WH
 ])
